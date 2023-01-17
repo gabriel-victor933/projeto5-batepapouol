@@ -16,66 +16,84 @@
 </head>
 
 <body>
+    <div class="principal">
+        <header>
+            <div></div>
+            <div></div>
+        </header>
 
-    <header>
+        <main>
+            <div class="status">
+                <p>
+                    <span class="hora">(09:21:45)</span>
+                    <span class="usuario"><strong> João</strong> </span>
+                    <span class="mensagem">entra na sala...</span>
+
+                </p>
+            </div>
+
+
+            <div class="normais">
+                <p>
+                    <span class="hora">(09:22:28)</span>
+                    <span class="usuario"><strong> João</strong>
+                        para <strong>Todos</strong>:</span>
+                    <span class="mensagem">Bom dia</span>
+
+                </p>
+            </div>
+            <div class="normais">
+                <p>
+                    <span class="hora">(09:22:28)</span>
+                    <span class="usuario"><strong> Maria</strong>
+                        para <strong>João</strong>:</span>
+                    <span class="mensagem">Oi João :)</span>
+
+                </p>
+            </div>
+            <div class="reservadas">
+                <p>
+                    <span class="hora">(09:21:45)</span>
+                    <span class="usuario"><strong> João</strong> reservadamente
+                        para <strong>Maria</strong>:</span>
+                    <span class="mensagem">Oi gatinha quer tc?</span>
+
+                </p>
+            </div>
+
+            <div class="status">
+                <p>
+                    <span class="hora">(09:21:45)</span>
+                    <span class="usuario"><strong> Maria</strong> </span>
+                    <span class="mensagem">sai da sala...</span>
+
+                </p>
+            </div>
+
+        </main>
+
+        <footer>
+            <input type="text" placeholder="Escreva aqui...">
+            <ion-icon name="paper-plane-outline"></ion-icon>
+        </footer>
+
+        <aside>
+            <div></div>
+            <div>
+                <h1>Escolha um contato para enviar mensagem:</h1>
+                <div>contatos</div>
+                <h1>Escolha a visibilidade:</h1>
+                <div>visibilidade</div>
+            </div>
+        </aside>
+
+    </div>
+
+    <div class="inicial">
         <div></div>
-        <div></div>
-    </header>
-
-    <main>
-        <div class="entra">
-            <p>
-                <span class="hora">(09:21:45)</span>
-                <span class="usuario"><strong> João</strong> </span>
-                <span class="mensagem">entra na sala...</span>
-
-            </p>
-        </div>
-
-
-        <div class="mens_todos">
-            <p>
-                <span class="hora">(09:22:28)</span>
-                <span class="usuario"><strong> João</strong>
-                    para <strong>Todos</strong>:</span>
-                <span class="mensagem">Bom dia</span>
-
-            </p>
-        </div>
-        <div class="mens_todos">
-            <p>
-                <span class="hora">(09:22:28)</span>
-                <span class="usuario"><strong> Maria</strong>
-                    para <strong>João</strong>:</span>
-                <span class="mensagem">Oi João :)</span>
-
-            </p>
-        </div>
-        <div class="mens_reservada">
-            <p>
-                <span class="hora">(09:21:45)</span>
-                <span class="usuario"><strong> João</strong> reservadamente
-                    para <strong>Maria</strong>:</span>
-                <span class="mensagem">Oi gatinha quer tc?</span>
-
-            </p>
-        </div>
-
-        <div class="entra">
-            <p>
-                <span class="hora">(09:21:45)</span>
-                <span class="usuario"><strong> Maria</strong> </span>
-                <span class="mensagem">sai da sala...</span>
-
-            </p>
-        </div>
-
-    </main>
-
-    <footer>
-        <input type="text" placeholder="Escreva aqui...">
-        <ion-icon name="paper-plane-outline"></ion-icon>
-    </footer>
+        <input type="text" placeholder="Digite seu nome">
+        <button>Entrar</button>
+    </div>
 
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
