@@ -143,7 +143,7 @@ function tipoMens(mensagem) {
 
 function tipoPrivado(mensagem) {
 
-    if (mensagem.to != usuario.name) return;
+    if (mensagem.to != usuario.name && mensagem.from != usuario.name) return;
 
     main.innerHTML = `${main.innerHTML}            
     <div class="reservadas" data-test="message">
