@@ -34,11 +34,8 @@ header div:first-child {
     background-size: contain;
 }
 
-header div:last-child {
-    width: 42.19px;
-    height: 30.94px;
-    background-image: url("../imagens/vector.png");
-    background-size: contain;
+header ion-icon {
+    font-size: 42px;
 }
 
 
@@ -83,8 +80,16 @@ footer input::placeholder {
     color: #000000;
 }
 
+footer p {
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 25px;
+    color: #505050
+}
+
 main {
-    margin-top: 104px;
+    margin: 104px 0px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -133,33 +138,39 @@ main>div span {
 
 
 aside {
-    display: flex;
+    display: none;
+    flex-direction: row-reverse;
     flex-wrap: nowrap;
+    justify-content: flex-end;
     width: 100%;
     height: 100%;
     position: fixed;
     top: 0px;
     left: 0px;
     z-index: 1;
+    background: rgba(0, 0, 0, 0.6);
 
 }
+
+
 
 aside>div:first-child {
-    background: rgba(0, 0, 0, 0.6);
-    width: 30%;
-    height: 100%;
-}
-
-aside>div:last-child {
     background: #ffffff;
     width: 70%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
     box-sizing: border-box;
     padding: 0px 17px;
 
+}
+
+aside>div:last-child {
+    background: transparent;
+    width: 30%;
+    height: 100%;
 }
 
 aside h1 {
@@ -183,8 +194,36 @@ aside>div>div {
 
 }
 
+#participantes {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#participantes>div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px 0px;
+}
+
 aside ion-icon {
     font-size: 20.31px;
+}
+
+aside>div>div ion-icon:last-child {
+    font-size: 15px;
+    color: #28bb25;
+    visibility: hidden;
+}
+
+.selecionadoPart ion-icon:last-child {
+    visibility: visible;
+}
+
+.selecionadoVisib ion-icon:last-child {
+    visibility: visible;
 }
 
 aside p {
@@ -200,23 +239,21 @@ aside p {
 
 
 
-.selecionado {
-    font-size: 15px;
-    color: #28bb25;
-}
-
-
 .inicial {
     width: 100%;
     height: 100vh;
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     background-color: #ffffff;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
 }
 
-.inicial>div {
+.inicial div:first-child {
     width: 130px;
     height: 92px;
     background-image: url(../imagens/logo2.png);
@@ -254,4 +291,24 @@ aside p {
     line-height: 25px;
     color: #696969;
     margin: 7.5px 0px 7.5px 0px;
+}
+
+.inicial div:nth-child(2) {
+    width: 250px;
+    height: 250px;
+    background-image: url(../imagens/load.gif);
+
+    background-size: contain;
+}
+
+.inicial p {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.inicial.hide {
+    display: none;
 }

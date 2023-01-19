@@ -19,11 +19,11 @@
     <div class="principal">
         <header>
             <div></div>
-            <div></div>
+            <ion-icon name="people-sharp" data-test="open-participants"></ion-icon>
         </header>
 
         <main>
-            <div class="status">
+            <div class="status" data-test="message">
                 <p>
                     <span class="hora">(09:21:45)</span>
                     <span class="usuario"><strong> João</strong> </span>
@@ -33,7 +33,7 @@
             </div>
 
 
-            <div class="normais">
+            <div class="normais" data-test="message">
                 <p>
                     <span class="hora">(09:22:28)</span>
                     <span class="usuario"><strong> João</strong>
@@ -42,7 +42,7 @@
 
                 </p>
             </div>
-            <div class="normais">
+            <div class="normais" data-test="message">
                 <p>
                     <span class="hora">(09:22:28)</span>
                     <span class="usuario"><strong> Maria</strong>
@@ -51,7 +51,7 @@
 
                 </p>
             </div>
-            <div class="reservadas">
+            <div class="reservadas" data-test="message">
                 <p>
                     <span class="hora">(09:21:45)</span>
                     <span class="usuario"><strong> João</strong> reservadamente
@@ -61,7 +61,7 @@
                 </p>
             </div>
 
-            <div class="status">
+            <div class="status" data-test="message">
                 <p>
                     <span class="hora">(09:21:45)</span>
                     <span class="usuario"><strong> Maria</strong> </span>
@@ -73,54 +73,72 @@
         </main>
 
         <footer>
-            <input type="text" placeholder="Escreva aqui...">
-            <ion-icon name="paper-plane-outline"></ion-icon>
+            <div>
+                <input type="text" placeholder="Escreva aqui..." data-test="input-message">
+                <p>Enviando para <span class="dest">Todos</span> (<span class="visibilidade">Público</span>)</p>
+            </div>
+            <div>
+                <ion-icon name="paper-plane-outline" data-test="input-message"></ion-icon>
+            </div>
         </footer>
 
         <aside>
-            <div></div>
+
             <div>
                 <h1>Escolha um contato para enviar mensagem:</h1>
-                <div>
+                <div data-test="all" onclick="selecionarPart(this)">
                     <ion-icon name="people"></ion-icon>
                     <p>Todos</p>
-                    <ion-icon name="checkmark-sharp" class="selecionado"></ion-icon>
+                    <ion-icon name="checkmark-sharp" data-test="check"></ion-icon>
                 </div>
-                <div>
-                    <ion-icon name="person-circle"></ion-icon>
-                    <p>João</p>
-                    <ion-icon name="checkmark-sharp" class="selecionado"></ion-icon>
-                </div>
-                <div>
-                    <ion-icon name="person-circle"></ion-icon>
-                    <p>Maria</p>
-                    <ion-icon name="checkmark-sharp" class="selecionado"></ion-icon>
+                <div id="participantes">
+                    <div data-test="participant">
+                        <ion-icon name="person-circle"></ion-icon>
+                        <p>João</p>
+                        <ion-icon name="checkmark-sharp" data-test="check"></ion-icon>
+                    </div>
+                    <div data-test="participant">
+                        <ion-icon name="person-circle"></ion-icon>
+                        <p>Maria</p>
+                        <ion-icon name="checkmark-sharp" data-test="check"></ion-icon>
+                    </div>
                 </div>
                 <h1>Escolha a visibilidade:</h1>
-                <div>
+                <div data-test="public" onclick="selecionarVisib(this)">
                     <ion-icon name="lock-open"></ion-icon>
                     <p>Público</p>
-                    <ion-icon name="checkmark-sharp" class="selecionado"></ion-icon>
+                    <ion-icon name="checkmark-sharp" data-test="check"></ion-icon>
                 </div>
-                <div>
+                <div data-test="private" onclick="selecionarVisib(this)">
                     <ion-icon name="lock-closed"></ion-icon>
                     <p>Reservadamente</p>
-                    <ion-icon name="checkmark-sharp" class="selecionado"></ion-icon>
+                    <ion-icon name="checkmark-sharp" data-test="check"></ion-icon>
                 </div>
             </div>
+            <div onclick="abrirParticipantes()"></div>
         </aside>
 
     </div>
 
     <div class="inicial">
         <div></div>
-        <input type="text" placeholder="Digite seu nome">
-        <button>Entrar</button>
+        <input type="text" placeholder="Digite seu nome" data-test="input-name">
+        <button data-test="send-name" onclick="perguntaNome()"">Entrar</button> 
+        
+    </div>
+
+    <div class=" inicial hide">
+            <div></div>
+            <div></div>
+            <p>Entrando...</p>
     </div>
 
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
