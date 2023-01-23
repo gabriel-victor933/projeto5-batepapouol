@@ -16,7 +16,7 @@ let usuarioValido = false;
 let main = document.querySelector("main");
 let text = document.querySelector("input");
 let button = document.getElementsByName("paper-plane-outline");
-let aside = document.querySelector("header button");
+let aside = document.getElementsByName("people-sharp");
 let paginaPart = document.querySelector("aside");
 let part = document.getElementById("participantes");
 let inicial = document.querySelectorAll(".inicial");
@@ -25,7 +25,7 @@ let visibilidade = document.querySelector(".visibilidade");
 
 
 button[0].addEventListener("click", enviar);
-aside.addEventListener("click", abrirParticipantes);
+aside[0].addEventListener("click", abrirParticipantes);
 document.addEventListener("keypress", (tecla) => {
     if (tecla.key == "Enter") enviar();
 })
@@ -36,7 +36,7 @@ setInterval(manterConexao, 5000);
 setInterval(buscarMensagens, 3000);
 setInterval(participantes, 10000);
 
-
+//
 function perguntaNome() {
 
     usuario.name = inicial[0].querySelector("input").value
@@ -179,13 +179,15 @@ function menNaoEnviada() {
 
 function abrirParticipantes() {
 
-    if (paginaPart.style.display == "none") {
-        document.querySelector("aside").style.display = "flex";
-    } else {
-        document.querySelector("aside").style.display = "none";
-    }
+
+    document.querySelector("aside").style.display = "flex";
 
 
+
+}
+
+function fecharParticipantes() {
+    document.querySelector("aside").style.display = "none";
 }
 
 function participantes() {
