@@ -172,7 +172,8 @@ aside>div:last-child {
     align-items: center;
     justify-content: flex-start;
     box-sizing: border-box;
-    padding: 0px 17px;
+    padding: 10px 17px;
+    overflow-y: scroll;
 }
 
 aside h1 {
