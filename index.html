@@ -75,7 +75,8 @@
         <footer>
             <div>
                 <input type="text" placeholder="Escreva aqui..." data-test="input-message">
-                <p>Enviando para <span class="dest">Todos</span> (<span class="visibilidade">Público</span>)</p>
+                <p data-test="recipient">Enviando para <span class="dest">Todos</span> (<span
+                        class="visibilidade">Público</span>)</p>
             </div>
             <div>
                 <ion-icon name="paper-plane-outline" data-test="send-message"></ion-icon>
@@ -115,7 +116,7 @@
                     <ion-icon name="checkmark-sharp" data-test="check"></ion-icon>
                 </div>
             </div>
-            <div onclick="abrirParticipantes()"></div>
+            <div onclick="abrirParticipantes()" data-test="overlay"></div>
         </aside>
 
     </div>

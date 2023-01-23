@@ -81,7 +81,7 @@ footer input::placeholder {
 }
 
 footer p {
-    font-family: 'Roboto';
+    font-family: 'Roboto', 'sans serif';
     font-weight: 300;
     font-size: 14px;
     line-height: 25px;
@@ -101,7 +101,7 @@ main>div {
     min-height: 40px;
     border-radius: 2px;
     margin: 2px 0px 2px 0px;
-    font-family: 'Roboto';
+    font-family: 'Roboto', 'sans serif';
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -174,7 +174,7 @@ aside>div:last-child {
 }
 
 aside h1 {
-    font-family: 'Roboto';
+    font-family: 'Roboto', 'sans serif';
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
@@ -227,7 +227,7 @@ aside>div>div ion-icon:last-child {
 }
 
 aside p {
-    font-family: 'Roboto';
+    font-family: 'Roboto', 'sans serif';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -302,7 +302,7 @@ aside p {
 }
 
 .inicial p {
-    font-family: 'Roboto';
+    font-family: 'Roboto', 'sans serif';
     font-style: normal;
     font-weight: 600;
     font-size: 16px;

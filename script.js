@@ -205,11 +205,20 @@ function mostrarPart(resposta) {
     part.innerHTML = "";
     for (let i = 0; i < resposta.data.length; i++) {
 
-        part.innerHTML += `<div data-test="participant" onclick="selecionarPart(this)">
+
+        if (resposta.data[i].name == dest.innerHTML) {
+            part.innerHTML += `<div data-test="participant" onclick="selecionarPart(this)" class="selecionadoPart">
         <ion-icon name="person-circle"></ion-icon>
         <p>${resposta.data[i].name}</p>
         <ion-icon name="checkmark-sharp" data-test="check"></ion-icon>
     </div>`
+        } else {
+            part.innerHTML += `<div data-test="participant" onclick="selecionarPart(this)">
+        <ion-icon name="person-circle"></ion-icon>
+        <p>${resposta.data[i].name}</p>
+        <ion-icon name="checkmark-sharp" data-test="check"></ion-icon>
+    </div>`
+        }
     }
 }
 
@@ -222,8 +231,9 @@ function selecionarPart(selecionado) {
     }
 
     selecionado.classList.toggle("selecionadoPart");
-
     dest.innerHTML = selecionado.querySelector("p").innerHTML;
+
+
 }
 
 
