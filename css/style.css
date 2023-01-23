@@ -139,7 +139,7 @@ main>div span {
 
 aside {
     display: none;
-    flex-direction: row-reverse;
+    flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-end;
     width: 100%;
@@ -155,6 +155,15 @@ aside {
 
 
 aside>div:first-child {
+    background: transparent;
+    width: 30%;
+    height: 100%;
+
+
+
+}
+
+aside>div:last-child {
     background: #ffffff;
     width: 70%;
     height: 100%;
@@ -164,13 +173,6 @@ aside>div:first-child {
     justify-content: flex-start;
     box-sizing: border-box;
     padding: 0px 17px;
-
-}
-
-aside>div:last-child {
-    background: transparent;
-    width: 30%;
-    height: 100%;
 }
 
 aside h1 {
