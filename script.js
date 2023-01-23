@@ -11,7 +11,11 @@ let mensagem_enviada = {
     text: "",
     type: "message"
 }
+
 let usuarioValido = false;
+let destinatario;
+let vis;
+
 
 let main = document.querySelector("main");
 let text = document.querySelector("input");
@@ -27,18 +31,19 @@ let visibilidade = document.querySelector(".visibilidade");
 button[0].addEventListener("click", enviar);
 aside[0].addEventListener("click", abrirParticipantes);
 document.addEventListener("keypress", (tecla) => {
-    if (tecla.key == "Enter") enviar();
+    if (tecla.key === "Enter") enviar();
 })
 
 
-
-setInterval(manterConexao, 5000);
-setInterval(buscarMensagens, 3000);
-setInterval(participantes, 10000);
+let intervalorConexão = 5000;
+let intervaloBuscarMens = 3000;
+let intervalorPart = 10000;
+setInterval(manterConexao, intervalorConexão);
+setInterval(buscarMensagens, intervaloBuscarMens);
+setInterval(participantes, intervalorPart);
 
 //
 function perguntaNome() {
-
     usuario.name = inicial[0].querySelector("input").value
     entrar();
 }
@@ -83,27 +88,21 @@ function manterConexao() {
 
 function carregarMensagens(resposta) {
 
-
-
     main.innerHTML = ""
 
     for (let i = 0; i < resposta.data.length; i++) {
-        // let tipo = resposta.data[i].type;
-
         switch (resposta.data[i].type) {
-            case "status": tipoStatus(resposta.data[i]); break;
-            case "message": tipoMens(resposta.data[i]); break;
-            case "private_message": tipoPrivado(resposta.data[i]); break;
+            case "status": tipoStatus(resposta.data[i]);
+                break;
+            case "message": tipoMens(resposta.data[i]);
+                break;
+            case "private_message": tipoPrivado(resposta.data[i]);
+                break;
         }
     }
 
     let divss = document.querySelectorAll("main div");
     divss[divss.length - 1].scrollIntoView();
-
-
-
-
-
 }
 
 function tipoStatus(mensagem) {
@@ -137,7 +136,7 @@ function tipoMens(mensagem) {
 
 function tipoPrivado(mensagem) {
 
-    if (mensagem.to != usuario.name && mensagem.from != usuario.name) return;
+    if (mensagem.to !== usuario.name && mensagem.from !== usuario.name) return;
 
     main.innerHTML = `${main.innerHTML}            
     <div class="reservadas" data-test="message">
@@ -155,22 +154,21 @@ function enviar() {
 
     if (!text.value) return;
 
-    mensagem_enviada.from = usuario.name;
-    mensagem_enviada.to = dest.innerHTML;
-    mensagem_enviada.text = text.value;
-    mensagem_enviada.type = visibilidade.innerHTML === "Reservadamente" ? "private_message" : "message";
-
-    text.value = "";
-
-
+    prepararMensagem();
 
     let promessa = axios.post(url_enviar, mensagem_enviada);
     promessa.then(buscarMensagens);
     promessa.catch(menNaoEnviada);
 
+}
 
+function prepararMensagem() {
+    mensagem_enviada.from = usuario.name;
+    mensagem_enviada.to = dest.innerHTML;
+    mensagem_enviada.text = text.value;
+    mensagem_enviada.type = vis === "Reservadamente" ? "private_message" : "message";
 
-
+    text.value = "";
 }
 
 function menNaoEnviada() {
@@ -201,8 +199,7 @@ function mostrarPart(resposta) {
     part.innerHTML = "";
     for (let i = 0; i < resposta.data.length; i++) {
 
-
-        if (resposta.data[i].name == dest.innerHTML) {
+        if (resposta.data[i].name === destinatario) {
             part.innerHTML += `<div data-test="participant" onclick="selecionarPart(this)" class="selecionadoPart">
         <ion-icon name="person-circle"></ion-icon>
         <p>${resposta.data[i].name}</p>
@@ -227,7 +224,8 @@ function selecionarPart(selecionado) {
     }
 
     selecionado.classList.toggle("selecionadoPart");
-    dest.innerHTML = selecionado.querySelector("p").innerHTML;
+    destinatario = selecionado.querySelector("p").innerHTML
+    dest.innerHTML = destinatario;
 
 
 }
@@ -241,7 +239,7 @@ function selecionarVisib(selecionado) {
     }
     selecionado.classList.toggle("selecionadoVisib");
 
-    visibilidade.innerHTML = selecionado.querySelector("p").innerHTML;
+    vis = visibilidade.innerHTML = selecionado.querySelector("p").innerHTML;
 
 }
 
