@@ -17,7 +17,7 @@ let usuarioValido = false;
 let main = document.querySelector("main");
 let text = document.querySelector("input");
 let button = document.getElementsByName("paper-plane-outline");
-let aside = document.getElementsByName("people-sharp");
+let aside = document.querySelector("header button");
 let paginaPart = document.querySelector("aside");
 let part = document.getElementById("participantes");
 let inicial = document.querySelectorAll(".inicial");
@@ -29,7 +29,7 @@ let visibilidade = document.querySelector(".visibilidade");
 
 
 button[0].addEventListener("click", enviar);
-aside[0].addEventListener("click", abrirParticipantes);
+aside.addEventListener("click", abrirParticipantes);
 
 document.addEventListener("keypress", (tecla) => {
     if (tecla.key == "Enter") enviar();
