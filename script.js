@@ -1,17 +1,16 @@
-let usuario = { name: "" };
 let url_entrar = "https://mock-api.driven.com.br/api/v6/uol/participants";
 let url_status = "https://mock-api.driven.com.br/api/v6/uol/status";
 let url_mensagens = "https://mock-api.driven.com.br/api/v6/uol/messages";
 let url_enviar = "https://mock-api.driven.com.br/api/v6/uol/messages";
 let url_part = "https://mock-api.driven.com.br/api/v6/uol/participants";
 
+let usuario = { name: "" };
 let mensagem_enviada = {
     from: "nome do usuário",
     to: "",
     text: "",
-    type: "message" // ou "private_message" para o bônus
+    type: "message"
 }
-
 let usuarioValido = false;
 
 let main = document.querySelector("main");
@@ -21,20 +20,15 @@ let aside = document.querySelector("header button");
 let paginaPart = document.querySelector("aside");
 let part = document.getElementById("participantes");
 let inicial = document.querySelectorAll(".inicial");
-
 let dest = document.querySelector(".dest");
 let visibilidade = document.querySelector(".visibilidade");
 
 
-
-
 button[0].addEventListener("click", enviar);
 aside.addEventListener("click", abrirParticipantes);
-
 document.addEventListener("keypress", (tecla) => {
     if (tecla.key == "Enter") enviar();
 })
-
 
 
 
